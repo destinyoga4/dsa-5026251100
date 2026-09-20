@@ -9,6 +9,7 @@ public class Main {
 
         List<PrintJob> jobs = new ArrayList<>();
 
+        //masukkan data ke dalam array list
         for ( int i = 0 ; i < 5 ; i++ ){
             String type = input.next();
             String id = input.next();
