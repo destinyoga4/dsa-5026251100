@@ -1,4 +1,3 @@
-| Data | Keterangan |
 | :--- | :--- |
 | **Nama** |: Destin Yoga Aghniansyah |
 | **NRP** |: 526251100 |
