@@ -13,4 +13,9 @@ public class ColourPrint extends PrintJob {
             return 15000 + ((getPages()-10) * 1000) + 2000;
         }
     }
+
+    @Override 
+    public String label(){
+        return "Colour";
+    }
 }
