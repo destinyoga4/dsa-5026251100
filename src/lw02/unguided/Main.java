@@ -46,14 +46,33 @@ public class Main {
                 }
             }
         }
+  
+        for(String [] data : request){
+            String name = data[0];
+            String title = data[1];
+            boolean status = false;
+
+            for (String[] m : member){
+                String n = m[0];
+                if(n.equals(name)){
+                    status = true;
+                    
+                }
+            }
+
+            if(!status) {
+                    String[] j = {name,"0"};
+                    member.add(j);
+                }
+
+        }
 
         Queue <String[]> process = new LinkedList<>(request);
 
-        while (!process.isEmpty()){
-            String [] data = process.poll();
-            String name = data[0];
-            String title = data[1];
-
+        while(!process.isEmpty()){
+            String [] d = process.poll();
+            String name = d[0];
+            String title = d[1];
             for (String[] m : member){
                 String n = m[0];
                 if(n.equals(name)){
@@ -62,38 +81,34 @@ public class Main {
                         if(tbook.equals(title)){
                             int stock = Integer.parseInt(t[1]);
                             int limit = Integer.parseInt(m[1]);
-
-                            if(stock >= 1 && limit<= 2){
+                            if(stock >0 && limit < 2){
                                 stock -= 1;
-                                limit += 1;
-                                String s = Integer.toString(stock);
-                                String l = Integer.toString(limit);
-                                m[1] = l;
-                                t[1] = s;
-                                String [] ss = data;
-                                success.add(ss);
-                                System.out.println(name + " " + title);
+                                limit += 1;                             
+                                m[1] = Integer.toString(limit);
+                                t[1] = Integer.toString(stock);
+                                success.add(d);
                             }
 
                             else {
-                                failed.push(data);
+                                failed.push(d);
                             }
                         }
-                    } 
+                    }
                 }
-            }
-
+            } 
         }
         System.out.println("===Successfully Processed Requests===");
         for (String [] s : success){
             System.out.println(s[0] + " " + s[1]);
         }
+        System.out.println();
 
         System.out.println("===Remaining Book Stock===");
         for (String [] b : book){
             System.out.println(b[0] + " : " + b[1]);
         }
 
+        System.out.println();
         System.out.println("=== Failed Requests ===");
         while (!failed.isEmpty()){
             String [] f = failed.pop();
