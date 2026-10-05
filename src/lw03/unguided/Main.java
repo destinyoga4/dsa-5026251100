@@ -21,7 +21,7 @@ public class Main {
             if(data[0].equals("REGISTER")){
                 String [] dataRegister = data[1].split(" ");
                 int value = Integer.parseInt(dataRegister[1]);
-                if(value == 0){
+                if(value <= 0){
                     failed++;
                 }
                 else{
