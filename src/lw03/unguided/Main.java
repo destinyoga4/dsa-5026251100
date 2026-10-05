@@ -65,6 +65,8 @@ public class Main {
 
         }
 
+        input.close();
+
         System.out.println();
         System.out.println("===== Final Enrollment =====");
         for(String c : course.keySet()){
