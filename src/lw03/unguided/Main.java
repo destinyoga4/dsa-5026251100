@@ -21,21 +21,16 @@ public class Main {
             if(data[0].equals("REGISTER")){
                 String [] dataRegister = data[1].split(" ");
                 int value = Integer.parseInt(dataRegister[1]);
-                if(!course.containsKey(dataRegister[0])){
-                    if(value == 0){
-                        failed++;
-                    }
-                    else{
-                    course.put(dataRegister[0],value);
-                    }
+                if(value == 0){
+                    failed++;
                 }
-
                 else{
-                    if(value == 0){
-                        failed++;
+                    if(!course.containsKey(dataRegister[0])){
+                        course.put(dataRegister[0],value);
                     }
+
                     else{
-                    course.put(dataRegister[0],course.get(dataRegister[0]) + value);
+                        course.put(dataRegister[0],course.get(dataRegister[0]) + value);
                     }
                 }
             }
