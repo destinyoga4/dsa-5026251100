@@ -27,7 +27,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        Scanner input = new Scanner(Main.class.getResourceAsStream("card2.txt"));
+        Scanner input = new Scanner(Main.class.getResourceAsStream("cards2.txt"));
 
         int n = input.nextInt();
         int [] card = new int[n];
@@ -37,8 +37,13 @@ public class Main {
         }
 
         selectionSort(card,2);
-        for(int c : card){
-            System.out.print(c + " ");
+        for(int i=0; i<n; i++){
+            if(i!=n-1){
+            System.out.print(card[i] + " ");
+            }
+            else{
+                System.out.print(card[i]);
+            }
         }
         System.out.println();
 
@@ -48,6 +53,7 @@ public class Main {
         for(int i=0; i<m ; i++){
             request[i] = input.nextInt();
         }
+        input.close();
 
         for(int r : request){
             int index = linearSearch(card,r);
